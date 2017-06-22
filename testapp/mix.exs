@@ -28,6 +28,7 @@ defmodule Testapp.Mixfile do
       :phoenix_ecto,
       :postgrex,
       :edeliver,
+      :ecto_mnesia,
     ]]
   end
 
@@ -49,6 +50,7 @@ defmodule Testapp.Mixfile do
      {:cowboy, "~> 1.0"},
      {:edeliver, "~> 1.4.2"},
      {:distillery, ">= 0.8.0", warn_missing: false},
+     {:ecto_mnesia, "~> 0.9.0"},
    ]
   end
 

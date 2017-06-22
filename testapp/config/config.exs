@@ -17,6 +17,9 @@ config :testapp, Testapp.Endpoint,
   pubsub: [name: Testapp.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :testapp, Testapp.Repo,
+  adapter: EctoMnesia.Adapter
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
