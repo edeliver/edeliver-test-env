@@ -3,4 +3,23 @@
 
 BUILD_HOST="build"
 BUILD_USER="root"
-BUILD_AT="/builds"
+APP="testapp"
+
+BUILD_AT="/builds/"
+SUB_DIR="..."
+# set build directory to sub directory containing the app to build
+BUILD_AT="$BUILD_AT/$APP"
+
+pre_init_app_remotely() {
+  # store current value to be able to restore it later
+  ACTUAL_PROJECT_DIR="$DELIVER_TO"
+  # set the build directory to the parent directory of the
+  # app (sub) directory for git operations
+  DELIVER_TO="$(dirname $DELIVER_TO)"
+  # repeat that for each subdir-level
+}
+
+pre_erlang_get_and_update_deps() {
+ # restore build directory including subdir for building
+ DELIVER_TO="$ACTUAL_PROJECT_DIR"
+}
