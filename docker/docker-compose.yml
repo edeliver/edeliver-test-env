@@ -1,0 +1,9 @@
+version: "2.0"
+services:
+
+  development:
+    build:
+      context: ./
+      dockerfile: "development.dockerfile"
+    volumes:
+      - ..:/development
