@@ -6,6 +6,7 @@ services:
       context: ./
       dockerfile: "development.dockerfile"
     command: "sh -c 'while true; do sleep 1; done'"
+    working_dir: /development/testapp
     volumes:
       - ..:/development
 
