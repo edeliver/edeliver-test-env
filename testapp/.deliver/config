@@ -1,0 +1,6 @@
+
+
+
+BUILD_HOST="build"
+BUILD_USER="root"
+BUILD_AT="/builds"
