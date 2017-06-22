@@ -8,3 +8,10 @@ services:
     command: "sh -c 'while true; do sleep 1; done'"
     volumes:
       - ..:/development
+
+
+  build:
+    build:
+      context: ./
+      dockerfile: "development.dockerfile"
+    command: "sh -c 'while true; do sleep 1; done'"
