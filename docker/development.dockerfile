@@ -59,8 +59,10 @@ RUN set -xe \
 ENV PATH $PATH:/opt/elixir-${ELIXIR_VERSION}/bin
 
 RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-RUN apk add --update grep coreutils inotify-tools alpine-sdk ncurses ncurses-dev openssl openssl-dev bash git curl docker@community erlang-tools tzdata \
-    && rm -rf /var/cache/apk/*
+RUN apk add --update grep coreutils openssh inotify-tools alpine-sdk ncurses ncurses-dev openssl openssl-dev bash git curl docker@community erlang-tools tzdata \
+    && rm -rf /var/cache/apk/* \
+    && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
+    && echo "root:root" | chpasswd
 
 RUN mkdir -p /build && cd build \
   && git clone https://github.com/ferd/erlang-history --depth=1 \
