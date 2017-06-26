@@ -64,7 +64,10 @@ RUN apk add --update grep coreutils openssh inotify-tools alpine-sdk ncurses ncu
     && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
     && sed -i s/#PermitEmptyPasswords.*/PermitEmptyPasswords\ yes/ /etc/ssh/sshd_config \
     && echo "root:" | chpasswd \
-    && sed -i 's/^\(root:.*:\)\/bin\/ash$/\1\/bin\/bash/g' /etc/passwd
+    && sed -i 's/^\(root:.*:\)\/bin\/ash$/\1\/bin\/bash/g' /etc/passwd \
+    && echo PATH=\$PATH:/opt/elixir-$ELIXIR_VERSION/bin > /root/.profile
+
+
 
 RUN mkdir -p /build && cd build \
   && git clone https://github.com/ferd/erlang-history --depth=1 \
