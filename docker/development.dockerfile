@@ -72,6 +72,11 @@ RUN mkdir -p /build && cd build \
   && cd ~ \
   && rm -fr /build/erlang-history
 
+
+RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa && \
+    ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+
+
 RUN mix local.hex --force
 RUN mix local.rebar --force
 
