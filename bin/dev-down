@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+project_dir="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd)"
+compose_file="${project_dir}/docker/docker-compose.yml"
+project_name="edeliver"
+docker-compose --project-name "${project_name}" -f "${compose_file}" down $@
