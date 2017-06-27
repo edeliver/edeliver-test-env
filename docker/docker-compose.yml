@@ -9,7 +9,7 @@ services:
     working_dir: /development/testapp
     volumes:
       - ..:/development
-      - ../../edeliver:/development/edeliver
+      - ../../edeliver:/edeliver
 
 
   build:
@@ -17,6 +17,8 @@ services:
       context: ./
       dockerfile: "development.dockerfile"
     command: /usr/sbin/sshd -D
+    volumes:
+      - ../../edeliver:/edeliver
 
 
   staging:
