@@ -9,6 +9,7 @@ services:
     working_dir: /development/testapp
     volumes:
       - ..:/development
+      - ../../edeliver:/development/edeliver
 
 
   build:
