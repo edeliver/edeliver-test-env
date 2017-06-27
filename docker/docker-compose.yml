@@ -16,3 +16,11 @@ services:
       context: ./
       dockerfile: "development.dockerfile"
     command: /usr/sbin/sshd -D
+
+
+  staging:
+    build:
+      context: ./
+      dockerfile: "development.dockerfile"
+    command: /usr/sbin/sshd -D
+    working_dir: /root/testapp

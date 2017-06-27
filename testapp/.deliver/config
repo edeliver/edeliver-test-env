@@ -23,3 +23,8 @@ pre_erlang_get_and_update_deps() {
  # restore build directory including subdir for building
  DELIVER_TO="$ACTUAL_PROJECT_DIR"
 }
+
+
+STAGING_HOSTS="staging"
+STAGING_USER="root"
+DELIVER_TO="/root"
