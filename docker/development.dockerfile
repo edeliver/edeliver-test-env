@@ -7,7 +7,9 @@ RUN apt-get update \
     && sed -i s/#PermitRootLogin.*/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
     && sed -i s/#PermitEmptyPasswords.*/PermitEmptyPasswords\ yes/ /etc/ssh/sshd_config \
     && mkdir /var/run/sshd \
-    && chmod 0755 /var/run/sshd
+    && chmod 0755 /var/run/sshd \
+    && ssh-keygen -t rsa -b 4096 -N "" -f /root/.ssh/id_rsa \
+    && cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 
 
